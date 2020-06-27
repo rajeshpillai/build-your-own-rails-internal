@@ -1,6 +1,8 @@
 class ConnectionAdapter
   def execute (sql) 
+    # context ->
     @db.execute(sql)
+
   end
 
   def columns(table_name) 
@@ -14,7 +16,6 @@ class SqliteAdapter < ConnectionAdapter
     require "sqlite3"
 
     @db = SQLite3::Database.new(File.dirname(__FILE__) + "/db/app.db")
-
   end
 
 end
