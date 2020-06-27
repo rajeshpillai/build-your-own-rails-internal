@@ -1,4 +1,4 @@
-require_relative "../connection_adapter"
+require_relative "./connection_adapter"
 
 module ActiveRecord
   class Base 
@@ -6,6 +6,15 @@ module ActiveRecord
   
     def initialize(attributes)
       @attributes = attributes
+    end
+
+    def method_missing(name, *args)
+      puts self.class
+      if self.class.columns.include?(name)
+        @attributes[name]
+      else
+        super
+      end
     end
   
     def self.find(id)
