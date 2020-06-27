@@ -9,7 +9,7 @@ module ActiveRecord
     end
 
     def method_missing(name, *args)
-      puts self.class
+      #puts self.class
       if self.class.columns.include?(name)
         @attributes[name]
       else
