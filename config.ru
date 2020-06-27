@@ -1,3 +1,5 @@
+require_relative "./front_controller"
+
 class App
   def call(env)
     [
@@ -33,5 +35,5 @@ class Upcase
 end
 
 use Logger
-use Upcase
-run App.new
+# use Upcase
+run FrontController.new
