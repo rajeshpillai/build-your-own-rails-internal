@@ -17,6 +17,7 @@ class FrontController
     controller.response = response
 
     controller.send(action_name)
+    controller.render(action_name)  unless controller.rendered?
     
     response.finish
 
