@@ -1,15 +1,18 @@
 require_relative "../controller"
-
-require_relative "../models/user"
+# require_relative "../models/user.rb"
 
 class UsersController < Controller
+
   def index
-    User.all.each do |user|
-      response.write "<p> #{user.name}</p>"
+    # p User
+    users = User.all.each do |user|
+       "<p> #{user.name}</p>"
     end
+    response.write users
+    @rendered = true
   end
 
   def show
-
+    @user = User.find(request["id"])
   end
 end

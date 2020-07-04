@@ -2,6 +2,8 @@ require_relative "./controller"
 
 
 class FrontController
+ 
+
   def call (env)
     puts "Front controller called..."
     request = Rack::Request.new(env)
